@@ -15,7 +15,7 @@ jobs:
       with:
         repository: llvm-doe-org/llvm-project
     - run: git checkout master
-    - run: git remote add upstream git@github.com:llvm/llvm-project.git
+    - run: git remote add upstream https://github.com/llvm/llvm-project.git
     - run: git fetch upstream
     - run: git merge upstream/master
     - run: git push
