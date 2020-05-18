@@ -15,9 +15,12 @@ jobs:
       with:
         repository: llvm-doe-org/llvm-project
         token: ${{secrets.PAT_FOR_PUSH}}
-    - run: git checkout master
-    - run: git remote add upstream https://github.com/llvm/llvm-project.git
-    - run: git fetch upstream
-    - run: git merge upstream/master
-    - run: git push https://$USERNAME:$REPO_KEY@github.com/llvm-doe-org/llvm-project.git $GITHUB_REF
-      env: ${{secrets.PAT_FOR_PUSH}}
+    - name: Sync master
+      run: | 
+        git checkout master
+        git remote add upstream https://github.com/llvm/llvm-project.git
+        git fetch upstream
+        git merge upstream/master
+        git push https://$USERNAME:$REPO_KEY@github.com/llvm-doe-org/llvm-project.git $GITHUB_REF
+      env: 
+        REPO_KEY: ${{secrets.PAT_FOR_PUSH}}
