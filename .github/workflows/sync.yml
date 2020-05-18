@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Sync master branch with upstream
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+      with:
+        repository: llvm-doe-org/llvm-project
+    - run: git checkout master
+    - run: git remote add upstream git@github.com:llvm/llvm-project.git
+    - run: git fetch upstream
+    - run: git merge upstream/master
+    - run: git push
