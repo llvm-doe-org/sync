@@ -1,16 +1,18 @@
-# This is a basic workflow to help you get started with Actions
+# Basic sync workflow for the llvm-doe-org/llvm-project repository.
+# 
+# This action synch the master of the repository with the upstream 
+# master.
 
-name: Sync master branch with upstream
+name: Sync master branch with llvm/llvm-project
 
 on:
-  schedule:
+  schedule: # Run every 30 minutes
     - cron: '*/30 * * * *'
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
       with:
         repository: llvm-doe-org/llvm-project
