@@ -6,7 +6,7 @@
 name: Sync master branch with llvm/llvm-project
 
 on:
-  schedule: # Run every 30 minutes
+  schedule:
     - cron: '*/30 * * * *'
 
 jobs:
