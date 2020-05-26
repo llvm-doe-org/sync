@@ -1,4 +1,4 @@
-# Sync branches from llvm-project fork for DoE
+# Sync branches from DoE llvm-project fork
 
 This repository is used to trigger github actions to sync branches 
 from the llvm-project DoE fork with the upstream repository. 
