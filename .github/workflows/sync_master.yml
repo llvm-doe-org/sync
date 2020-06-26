@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: llvm-doe-org/llvm-project
-        ref: master
+        ref: llvm.org/master
         token: ${{secrets.PAT_FOR_PUSH}}
     - name: Sync master
       run: |
