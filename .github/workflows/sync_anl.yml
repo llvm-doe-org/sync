@@ -16,8 +16,8 @@ jobs:
     steps:
     - name: Sync main
       run: |
-        git clone -b $BRANCH https://$USERNAME:$REPO_KEY@$REPO
-        cd llvm-project/
+        git clone -b $BRANCH https://$USERNAME:$REPO_KEY@$REPO $REPO_DIR
+        cd $REPO_DIR
         git remote add upstream https://github.com/llvm/llvm-project.git
         git fetch upstream
         git merge upstream/main
@@ -27,3 +27,4 @@ jobs:
         USERNAME: ${{secrets.ANL_USERNAME}}
         REPO: ecpci-test.alcf.anl.gov/anl/llvmfork/llvmfork.git
         BRANCH: llvm.org/main
+        REPO_DIR: llvm-project
