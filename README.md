@@ -11,3 +11,4 @@ List of synced branches:
 | master       | master          | [sync_master.yml](.github/workflows/sync_master.yml) | */30 * * * * | ![Matser](https://github.com/llvm-doe-org/sync/workflows/Sync%20master%20branch%20with%20llvm/llvm-project/badge.svg) |
 | main         | main            | [sync_main.yml](.github/workflows/sync_main.yml)     | */30 * * * * | ![Main](https://github.com/llvm-doe-org/sync/workflows/Sync%20main%20branch%20with%20llvm/llvm-project/badge.svg) |
 | doe          | master          | [sync_doe.yml](.github/workflows/sync_doe.yml)       | */30 * * * * | ![Doe](https://github.com/llvm-doe-org/sync/workflows/Sync%20doe%20branch%20with%20llvm/llvm-project/badge.svg) |
+| ALCF         | main.           | [sync_anl.yml](.github/workflows/sync_anl.yml)       | */30 * * * * | ![ALCF](https://github.com/llvm-doe-org/sync/workflows/Sync%20main%20branch%20@ANL%20with%20llvm/llvm-project/badge.svg) |
