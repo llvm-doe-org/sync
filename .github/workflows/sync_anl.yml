@@ -17,6 +17,7 @@ jobs:
     - name: Sync main
       run: |
         git clone -b main https://$USERNAME:$REPO_KEY@$REPO
+        cd llvm-project/
         git remote add upstream https://github.com/llvm/llvm-project.git
         git fetch upstream
         git merge upstream/main
