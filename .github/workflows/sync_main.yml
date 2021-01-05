@@ -21,7 +21,7 @@ jobs:
     - name: Sync main
       run: |
         git remote add upstream https://github.com/llvm/llvm-project.git
-        git fetch upstream
+        git fetch upstream main
         git merge upstream/main
         git push https://$USERNAME:$REPO_KEY@github.com/llvm-doe-org/llvm-project.git llvm.org/main
       env: 
