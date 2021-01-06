@@ -4,7 +4,7 @@
 # This action synch the main of the repository with the upstream 
 # main.
 
-name: Sync main branch @ANL with llvm/llvm-project
+name: Sync main branch @ALCF with llvm/llvm-project
 
 on:
   schedule:
