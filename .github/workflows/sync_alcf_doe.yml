@@ -25,6 +25,6 @@ jobs:
       env: 
         REPO_KEY: ${{secrets.PAT_ANL}}
         USERNAME: ${{secrets.ANL_USERNAME}}
-        REPO: ecpci-test.alcf.anl.gov/anl/llvmfork/llvmfork.git
+        REPO: gitlab-ci.alcf.anl.gov/anl/llvmfork/llvmfork.git
         BRANCH: doe
         REPO_DIR: llvm-project
