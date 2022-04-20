@@ -1,0 +1,28 @@
+# This action syncs the llvm-test-suite/llvm.org/main branch of the
+# repository from upstream llvm-test-suite/main.
+
+name: Sync llvm-test-suite/llvm.org/main
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: llvm-doe-org/llvm-test-suite
+        ref: llvm.org/main
+        token: ${{secrets.PAT_FOR_PUSH}}
+    - name: Sync llvm.org/main
+      run: |
+        git remote add upstream https://github.com/llvm/llvm-test-suite.git
+        git fetch upstream main
+        git fetch --unshallow upstream
+        git merge upstream/main
+        git push https://$USERNAME:$REPO_KEY@github.com/llvm-doe-org/llvm-test-suite.git llvm.org/main
+      env:
+        REPO_KEY: ${{secrets.PAT_FOR_PUSH}}
+        USERNAME: github-actions

@@ -1,9 +1,7 @@
-# Basic sync workflow for the llvm-doe-org/llvm-project repository.
-# 
-# This action synch the main of the repository with the upstream 
-# main.
+# This action syncs the llvm-project/doe branch of the repository from
+# upstream llvm-project/main.
 
-name: Sync main branch with llvm/llvm-project
+name: Sync llvm-project/doe
 
 on:
   schedule:
@@ -16,15 +14,15 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: llvm-doe-org/llvm-project
-        ref: llvm.org/main
+        ref: doe
         token: ${{secrets.PAT_FOR_PUSH}}
-    - name: Sync main
+    - name: Sync doe
       run: |
         git remote add upstream https://github.com/llvm/llvm-project.git
         git fetch upstream main
         git fetch --unshallow upstream
         git merge upstream/main
-        git push https://$USERNAME:$REPO_KEY@github.com/llvm-doe-org/llvm-project.git llvm.org/main
+        git push https://$USERNAME:$REPO_KEY@github.com/llvm-doe-org/llvm-project.git
       env: 
         REPO_KEY: ${{secrets.PAT_FOR_PUSH}}
         USERNAME: github-actions
